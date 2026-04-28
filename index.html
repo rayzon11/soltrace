@@ -34,10 +34,8 @@
     color: var(--text);
     font-family: var(--sans);
     min-height: 100vh;
-    padding: 0;
   }
 
-  /* Grid noise texture */
   body::before {
     content: '';
     position: fixed;
@@ -58,7 +56,6 @@
     z-index: 1;
   }
 
-  /* Header */
   .header {
     display: flex;
     align-items: center;
@@ -82,17 +79,8 @@
     flex-shrink: 0;
   }
 
-  .header-text h1 {
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.5px;
-  }
-
-  .header-text p {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-top: 1px;
-  }
+  .header-text h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.5px; }
+  .header-text p { font-size: 13px; color: var(--text-dim); margin-top: 1px; }
 
   .solana-badge {
     margin-left: auto;
@@ -106,7 +94,6 @@
     letter-spacing: 0.5px;
   }
 
-  /* Search box */
   .search-wrap {
     background: var(--surface);
     border: 1px solid var(--border2);
@@ -125,10 +112,7 @@
     display: block;
   }
 
-  .search-row {
-    display: flex;
-    gap: 10px;
-  }
+  .search-row { display: flex; gap: 10px; }
 
   .search-input {
     flex: 1;
@@ -164,20 +148,9 @@
   .search-btn:active { transform: scale(0.97); }
   .search-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-  /* Quick addresses */
-  .quick-label {
-    font-size: 11px;
-    color: var(--text-dimmer);
-    margin-top: 10px;
-    display: block;
-  }
+  .quick-label { font-size: 11px; color: var(--text-dimmer); margin-top: 10px; display: block; }
 
-  .quick-addresses {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
-  }
+  .quick-addresses { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 
   .quick-addr {
     background: var(--surface2);
@@ -191,12 +164,25 @@
     transition: all 0.15s;
   }
 
-  .quick-addr:hover {
-    border-color: var(--purple);
-    color: var(--purple);
+  .quick-addr:hover { border-color: var(--purple); color: var(--purple); }
+
+  /* Progress bar */
+  .progress-bar-wrap {
+    height: 3px;
+    background: var(--surface2);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+    display: none;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--purple);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 0%;
   }
 
-  /* Stats bar */
   .stats-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -231,7 +217,6 @@
   .stat-value.green { color: var(--green); }
   .stat-value.amber { color: var(--amber); }
 
-  /* Feed */
   .feed-header {
     display: flex;
     align-items: center;
@@ -247,19 +232,8 @@
     letter-spacing: 1px;
   }
 
-  .feed-count {
-    font-size: 12px;
-    color: var(--text-dimmer);
-    font-family: var(--mono);
-  }
+  .feed { display: flex; flex-direction: column; gap: 8px; }
 
-  .feed {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  /* Transaction card */
   .tx-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -273,10 +247,7 @@
     text-decoration: none;
   }
 
-  .tx-card:hover {
-    border-color: var(--border2);
-    background: var(--surface2);
-  }
+  .tx-card:hover { border-color: var(--border2); background: var(--surface2); }
 
   .tx-icon {
     width: 36px;
@@ -289,11 +260,12 @@
     flex-shrink: 0;
   }
 
-  .tx-icon.send { background: var(--red-dim); }
-  .tx-icon.receive { background: var(--green-dim); }
-  .tx-icon.swap { background: var(--purple-dim); }
-  .tx-icon.nft { background: var(--amber-dim); }
-  .tx-icon.contract { background: var(--surface2); }
+  .tx-icon.send { background: var(--red-dim); color: var(--red); }
+  .tx-icon.receive { background: var(--green-dim); color: var(--green); }
+  .tx-icon.swap { background: var(--purple-dim); color: var(--purple); }
+  .tx-icon.nft { background: var(--amber-dim); color: var(--amber); }
+  .tx-icon.contract { background: var(--surface2); color: var(--text-dim); }
+  .tx-icon.failed { background: var(--red-dim); color: var(--red); opacity: 0.5; }
 
   .tx-body { flex: 1; min-width: 0; }
 
@@ -305,11 +277,7 @@
     margin-bottom: 4px;
   }
 
-  .tx-type {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-  }
+  .tx-type { font-size: 13px; font-weight: 600; color: var(--text); }
 
   .tx-amount {
     font-family: var(--mono);
@@ -338,12 +306,7 @@
     white-space: nowrap;
   }
 
-  .tx-time {
-    font-size: 11px;
-    color: var(--text-dimmer);
-    flex-shrink: 0;
-    font-family: var(--mono);
-  }
+  .tx-time { font-size: 11px; color: var(--text-dimmer); flex-shrink: 0; font-family: var(--mono); }
 
   .tx-status {
     width: 6px;
@@ -354,7 +317,8 @@
     box-shadow: 0 0 6px var(--green);
   }
 
-  /* States */
+  .tx-status.failed { background: var(--red); box-shadow: 0 0 6px var(--red); }
+
   .state-box {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -363,25 +327,10 @@
     text-align: center;
   }
 
-  .state-icon {
-    font-size: 40px;
-    margin-bottom: 1rem;
-    display: block;
-  }
+  .state-icon { font-size: 40px; margin-bottom: 1rem; display: block; }
+  .state-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+  .state-sub { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
 
-  .state-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-
-  .state-sub {
-    font-size: 14px;
-    color: var(--text-dim);
-    line-height: 1.6;
-  }
-
-  /* Spinner */
   .spinner {
     width: 28px;
     height: 28px;
@@ -394,7 +343,6 @@
 
   @keyframes spin { to { transform: rotate(360deg); } }
 
-  /* Share button */
   .share-btn {
     background: transparent;
     border: 1px solid var(--border2);
@@ -407,25 +355,16 @@
     transition: all 0.15s;
   }
 
-  .share-btn:hover {
-    background: var(--purple-dim);
-  }
+  .share-btn:hover { background: var(--purple-dim); }
 
-  /* Fade-in animation */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .tx-card { animation: fadeUp 0.3s ease forwards; }
+  .tx-card { animation: fadeUp 0.3s ease forwards; opacity: 0; }
 
-  /* Filter tabs */
-  .filter-tabs {
-    display: flex;
-    gap: 6px;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-  }
+  .filter-tabs { display: flex; gap: 6px; margin-bottom: 1rem; flex-wrap: wrap; }
 
   .filter-tab {
     background: transparent;
@@ -456,6 +395,14 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 220px;
+  }
+
+  .rpc-note {
+    font-size: 11px;
+    color: var(--text-dimmer);
+    font-family: var(--mono);
+    text-align: center;
+    margin-top: 8px;
   }
 
   @media (max-width: 600px) {
@@ -489,6 +436,9 @@
         spellcheck="false"
       />
       <button class="search-btn" id="searchBtn" onclick="loadWallet()">Trace</button>
+    </div>
+    <div class="progress-bar-wrap" id="progressWrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
     </div>
     <span class="quick-label">Try a known wallet:</span>
     <div class="quick-addresses">
@@ -524,9 +474,19 @@
 </div>
 
 <script>
-const RPC = 'https://api.mainnet-beta.solana.com';
+// ── RPC endpoints — tries each in order if one fails or rate-limits ──
+const RPCS = [
+  'https://api.mainnet-beta.solana.com',
+  'https://solana-mainnet.rpc.extrnode.com',
+  'https://rpc.ankr.com/solana',
+];
+
+let currentRpcIdx = 0;
 let currentFilter = 'all';
 let allTxs = [];
+let currentWallet = '';
+
+// ── Helpers ──────────────────────────────────────────────────────────
 
 function useAddr(addr) {
   document.getElementById('walletInput').value = addr;
@@ -534,15 +494,12 @@ function useAddr(addr) {
 }
 
 function shortSig(sig) {
-  return sig.slice(0, 8) + '...' + sig.slice(-6);
-}
-
-function shortAddr(addr) {
-  if (!addr) return '—';
-  return addr.slice(0, 4) + '...' + addr.slice(-4);
+  if (!sig) return '—';
+  return sig.slice(0, 8) + '…' + sig.slice(-6);
 }
 
 function timeAgo(ts) {
+  if (!ts) return '—';
   const diff = Date.now() / 1000 - ts;
   if (diff < 60) return Math.floor(diff) + 's ago';
   if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
@@ -550,48 +507,146 @@ function timeAgo(ts) {
   return Math.floor(diff / 86400) + 'd ago';
 }
 
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ── RPC call with retry + automatic fallback ──────────────────────────
+
+async function rpcCall(method, params, retries = 3) {
+  for (let attempt = 0; attempt < retries; attempt++) {
+    const rpc = RPCS[currentRpcIdx % RPCS.length];
+    try {
+      const res = await fetch(rpc, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: 1, method, params }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (data.error) {
+        // Rate limited or method error — rotate RPC
+        if (data.error.code === 429 || data.error.message?.includes('rate')) {
+          currentRpcIdx++;
+          await sleep(400);
+          continue;
+        }
+        throw new Error(data.error.message || JSON.stringify(data.error));
+      }
+      return data.result;
+    } catch (err) {
+      if (attempt < retries - 1) {
+        currentRpcIdx++;
+        await sleep(300 * (attempt + 1));
+      } else {
+        throw err;
+      }
+    }
+  }
+}
+
+// ── Fetch transactions with concurrency control ───────────────────────
+
+async function fetchTransactions(signatures, onProgress) {
+  const BATCH = 4;        // max concurrent requests
+  const DELAY = 120;      // ms between batches (rate limit friendly)
+  const results = [];
+  let done = 0;
+
+  for (let i = 0; i < signatures.length; i += BATCH) {
+    const batch = signatures.slice(i, i + BATCH);
+    const batchResults = await Promise.all(
+      batch.map(sig =>
+        rpcCall('getTransaction', [
+          sig,
+          { encoding: 'json', maxSupportedTransactionVersion: 0 }
+        ]).catch(() => null)
+      )
+    );
+    results.push(...batchResults);
+    done += batch.length;
+    onProgress(done / signatures.length);
+    if (i + BATCH < signatures.length) await sleep(DELAY);
+  }
+
+  return results;
+}
+
+// ── Account key extraction — handles both legacy & v0 transactions ────
+
+function getAccountKeys(tx) {
+  const msg = tx.transaction?.message;
+  if (!msg) return [];
+
+  // Legacy: accountKeys is string[]
+  // v0 parsed: accountKeys is {pubkey, signer, writable}[] OR string[]
+  // Also check staticAccountKeys for some RPC encodings
+  const rawKeys = msg.accountKeys || msg.staticAccountKeys || [];
+
+  const staticKeys = rawKeys.map(k => (typeof k === 'string' ? k : k.pubkey));
+
+  // v0 may also have loadedAddresses (writable + readonly) from address lookup tables
+  const loaded = tx.meta?.loadedAddresses;
+  const loadedWritable = loaded?.writable || [];
+  const loadedReadonly = loaded?.readonly || [];
+
+  return [...staticKeys, ...loadedWritable, ...loadedReadonly];
+}
+
+// ── Transaction classification ────────────────────────────────────────
+
 function classifyTx(tx, wallet) {
   const meta = tx.meta;
-  const msg = tx.transaction?.message;
-  if (!meta || !msg) return { type: 'contract', label: 'Program Call', amount: null };
 
-  const accountKeys = msg.accountKeys || [];
-  const walletIdx = accountKeys.findIndex(k => {
-    const pk = typeof k === 'string' ? k : k.pubkey;
-    return pk === wallet;
-  });
+  // Failed transaction
+  if (meta?.err !== null && meta?.err !== undefined && meta?.err !== null) {
+    return { type: 'failed', label: 'Failed Tx', amount: 0 };
+  }
+
+  const accountKeys = getAccountKeys(tx);
+  const walletIdx = accountKeys.findIndex(k => k === wallet);
 
   let solChange = 0;
-  if (walletIdx >= 0 && meta.preBalances && meta.postBalances) {
+  if (walletIdx >= 0 && meta?.preBalances && meta?.postBalances) {
     solChange = (meta.postBalances[walletIdx] - meta.preBalances[walletIdx]) / 1e9;
   }
 
-  const logs = meta.logMessages || [];
-  const isSwap = logs.some(l => l.includes('Swap') || l.includes('swap'));
-  const isNFT = logs.some(l => l.includes('NFT') || l.includes('mint') || l.includes('Metaplex'));
+  const logs = meta?.logMessages || [];
+  const logsStr = logs.join(' ').toLowerCase();
+
+  const isSwap = logsStr.includes('swap') || logsStr.includes('amm') || logsStr.includes('orca') || logsStr.includes('raydium');
+  const isNFT = logsStr.includes('nft') || logsStr.includes('metaplex') || logsStr.includes('metadata') || logsStr.includes('master edition');
 
   if (isNFT) return { type: 'nft', label: 'NFT Activity', amount: solChange };
   if (isSwap) return { type: 'swap', label: 'Token Swap', amount: solChange };
-  if (solChange > 0.001) return { type: 'receive', label: 'Received SOL', amount: solChange };
-  if (solChange < -0.001) return { type: 'send', label: 'Sent SOL', amount: solChange };
+  if (solChange > 0.000005) return { type: 'receive', label: 'Received SOL', amount: solChange };
+  if (solChange < -0.000005) return { type: 'send', label: 'Sent SOL', amount: solChange };
   return { type: 'contract', label: 'Program Call', amount: solChange };
 }
 
-const typeIcon = { send: '↑', receive: '↓', swap: '⇄', nft: '◈', contract: '⬡' };
+const typeIcon = {
+  send: '↑',
+  receive: '↓',
+  swap: '⇄',
+  nft: '◈',
+  contract: '⬡',
+  failed: '✕',
+};
+
+// ── Render a single transaction card ──────────────────────────────────
 
 function renderTx(tx, wallet, idx) {
   const sig = tx.transaction?.signatures?.[0] || '';
   const ts = tx.blockTime || 0;
   const { type, label, amount } = classifyTx(tx, wallet);
 
-  const amountStr = amount !== null 
-    ? (amount >= 0 ? '+' : '') + amount.toFixed(4) + ' SOL'
+  const amountStr = (Math.abs(amount) > 0.000005)
+    ? (amount >= 0 ? '+' : '') + amount.toFixed(5) + ' SOL'
     : '—';
-  const amountClass = amount > 0.001 ? 'positive' : amount < -0.001 ? 'negative' : 'neutral';
+  const amountClass = amount > 0.000005 ? 'positive' : amount < -0.000005 ? 'negative' : 'neutral';
+  const failed = type === 'failed';
 
   return `
-    <a class="tx-card" href="https://solscan.io/tx/${sig}" target="_blank" rel="noopener" 
-       style="animation-delay:${idx * 40}ms" data-type="${type}">
+    <a class="tx-card" href="https://solscan.io/tx/${sig}" target="_blank" rel="noopener"
+       style="animation-delay:${idx * 35}ms" data-type="${type}">
       <div class="tx-icon ${type}">${typeIcon[type]}</div>
       <div class="tx-body">
         <div class="tx-top">
@@ -600,71 +655,15 @@ function renderTx(tx, wallet, idx) {
         </div>
         <div class="tx-bottom">
           <span class="tx-sig">${shortSig(sig)}</span>
-          <span class="tx-time">${ts ? timeAgo(ts) : '—'}</span>
+          <span class="tx-time">${timeAgo(ts)}</span>
         </div>
       </div>
-      <div class="tx-status"></div>
+      <div class="tx-status ${failed ? 'failed' : ''}"></div>
     </a>
   `;
 }
 
-function renderFeed(txs, wallet) {
-  const filtered = currentFilter === 'all' 
-    ? txs 
-    : txs.filter(tx => classifyTx(tx, wallet).type === currentFilter);
-
-  const feedWrap = document.getElementById('feedWrap');
-
-  if (filtered.length === 0) {
-    feedWrap.innerHTML = `
-      <div class="filter-tabs">${renderFilterTabs()}</div>
-      <div class="state-box">
-        <span class="state-icon">○</span>
-        <div class="state-title">No transactions found</div>
-        <div class="state-sub">No ${currentFilter} transactions in recent history</div>
-      </div>`;
-    return;
-  }
-
-  let solIn = 0, solOut = 0;
-  txs.forEach(tx => {
-    const { amount } = classifyTx(tx, wallet);
-    if (amount > 0) solIn += amount;
-    if (amount < 0) solOut += Math.abs(amount);
-  });
-
-  document.getElementById('statTx').textContent = txs.length;
-  document.getElementById('statIn').textContent = '+' + solIn.toFixed(3);
-  document.getElementById('statOut').textContent = '-' + solOut.toFixed(3);
-  document.getElementById('statsBar').style.display = 'grid';
-
-  feedWrap.innerHTML = `
-    <div class="feed-header">
-      <span class="feed-title">Activity Feed</span>
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="wallet-display">${wallet.slice(0,8)}...${wallet.slice(-8)}</div>
-        <button class="share-btn" onclick="shareWallet('${wallet}')">Share ↗</button>
-      </div>
-    </div>
-    <div class="filter-tabs">${renderFilterTabs()}</div>
-    <div class="feed" id="feed">
-      ${filtered.map((tx, i) => renderTx(tx, wallet, i)).join('')}
-    </div>
-    <div style="text-align:center;margin-top:1.5rem">
-      <a href="https://solscan.io/account/${wallet}" target="_blank" rel="noopener" 
-         style="font-size:13px;color:var(--purple);text-decoration:none;font-family:var(--mono)">
-        View full history on Solscan →
-      </a>
-    </div>
-  `;
-
-  document.querySelectorAll('.filter-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      currentFilter = tab.dataset.filter;
-      renderFeed(allTxs, wallet);
-    });
-  });
-}
+// ── Render filter tabs ─────────────────────────────────────────────────
 
 function renderFilterTabs() {
   const filters = [
@@ -674,51 +673,125 @@ function renderFilterTabs() {
     { key: 'swap', label: 'Swaps' },
     { key: 'nft', label: 'NFTs' },
     { key: 'contract', label: 'Programs' },
+    { key: 'failed', label: 'Failed' },
   ];
-  return filters.map(f => 
+  return filters.map(f =>
     `<button class="filter-tab ${currentFilter === f.key ? 'active' : ''}" data-filter="${f.key}">${f.label}</button>`
   ).join('');
 }
 
+// ── Render the full feed ───────────────────────────────────────────────
+
+function renderFeed(txs, wallet) {
+  const filtered = currentFilter === 'all'
+    ? txs
+    : txs.filter(tx => classifyTx(tx, wallet).type === currentFilter);
+
+  const feedWrap = document.getElementById('feedWrap');
+
+  // Update stats (always from full set)
+  let solIn = 0, solOut = 0;
+  txs.forEach(tx => {
+    const { amount, type } = classifyTx(tx, wallet);
+    if (type !== 'failed') {
+      if (amount > 0) solIn += amount;
+      if (amount < 0) solOut += Math.abs(amount);
+    }
+  });
+
+  document.getElementById('statTx').textContent = txs.length;
+  document.getElementById('statIn').textContent = '+' + solIn.toFixed(4);
+  document.getElementById('statOut').textContent = '-' + solOut.toFixed(4);
+  document.getElementById('statsBar').style.display = 'grid';
+
+  if (filtered.length === 0) {
+    feedWrap.innerHTML = `
+      <div class="filter-tabs">${renderFilterTabs()}</div>
+      <div class="state-box">
+        <span class="state-icon">○</span>
+        <div class="state-title">No transactions found</div>
+        <div class="state-sub">No ${currentFilter} transactions in recent history</div>
+      </div>`;
+    attachFilterListeners(wallet);
+    return;
+  }
+
+  feedWrap.innerHTML = `
+    <div class="feed-header">
+      <span class="feed-title">Activity Feed</span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="wallet-display">${wallet.slice(0,8)}…${wallet.slice(-8)}</div>
+        <button class="share-btn" onclick="shareWallet('${wallet}')">Share ↗</button>
+      </div>
+    </div>
+    <div class="filter-tabs">${renderFilterTabs()}</div>
+    <div class="feed" id="feed">
+      ${filtered.map((tx, i) => renderTx(tx, wallet, i)).join('')}
+    </div>
+    <div style="text-align:center;margin-top:1.5rem">
+      <a href="https://solscan.io/account/${wallet}" target="_blank" rel="noopener"
+         style="font-size:13px;color:var(--purple);text-decoration:none;font-family:var(--mono)">
+        View full history on Solscan →
+      </a>
+    </div>
+    <div class="rpc-note">Using RPC: ${RPCS[currentRpcIdx % RPCS.length].replace('https://', '')}</div>
+  `;
+
+  attachFilterListeners(wallet);
+}
+
+function attachFilterListeners(wallet) {
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      currentFilter = tab.dataset.filter;
+      renderFeed(allTxs, wallet);
+    });
+  });
+}
+
+// ── Share ──────────────────────────────────────────────────────────────
+
 function shareWallet(wallet) {
   const url = window.location.origin + window.location.pathname + '?wallet=' + wallet;
-  const text = `Tracing Solana wallet ${wallet.slice(0,8)}... on SolTrace`;
+  const text = `Tracing Solana wallet ${wallet.slice(0,8)}… on SolTrace`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
   window.open(twitterUrl, '_blank');
 }
 
+// ── Main load function ─────────────────────────────────────────────────
+
 async function loadWallet() {
   const wallet = document.getElementById('walletInput').value.trim();
   if (!wallet || wallet.length < 32) {
-    alert('Please enter a valid Solana wallet address');
+    alert('Please enter a valid Solana wallet address (32–44 characters)');
     return;
   }
 
+  currentWallet = wallet;
   currentFilter = 'all';
-  document.getElementById('searchBtn').disabled = true;
-  document.getElementById('searchBtn').textContent = 'Loading...';
+  allTxs = [];
+
+  const btn = document.getElementById('searchBtn');
+  const progressWrap = document.getElementById('progressWrap');
+  const progressFill = document.getElementById('progressFill');
+
+  btn.disabled = true;
+  btn.textContent = 'Loading…';
   document.getElementById('statsBar').style.display = 'none';
+  progressWrap.style.display = 'block';
+  progressFill.style.width = '5%';
 
   document.getElementById('feedWrap').innerHTML = `
     <div class="state-box">
       <div class="spinner"></div>
-      <div class="state-title">Fetching transactions...</div>
-      <div class="state-sub" style="font-family:var(--mono);font-size:12px">${wallet.slice(0,16)}...</div>
+      <div class="state-title">Fetching signatures…</div>
+      <div class="state-sub" style="font-family:var(--mono);font-size:12px">${wallet.slice(0,16)}…</div>
     </div>
   `;
 
   try {
-    const sigsRes = await fetch(RPC, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        jsonrpc: '2.0', id: 1,
-        method: 'getSignaturesForAddress',
-        params: [wallet, { limit: 25 }]
-      })
-    });
-    const sigsData = await sigsRes.json();
-    const sigs = sigsData.result;
+    // Step 1: get signatures
+    const sigs = await rpcCall('getSignaturesForAddress', [wallet, { limit: 25 }]);
 
     if (!sigs || sigs.length === 0) {
       document.getElementById('feedWrap').innerHTML = `
@@ -730,24 +803,32 @@ async function loadWallet() {
       return;
     }
 
-    const txRes = await fetch(RPC, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        jsonrpc: '2.0', id: 2,
-        method: 'getTransactions',
-        params: [sigs.map(s => s.signature), { encoding: 'json', maxSupportedTransactionVersion: 0 }]
-      })
+    progressFill.style.width = '15%';
+
+    // Update status
+    document.getElementById('feedWrap').innerHTML = `
+      <div class="state-box">
+        <div class="spinner"></div>
+        <div class="state-title">Loading ${sigs.length} transactions…</div>
+        <div class="state-sub" style="font-family:var(--mono);font-size:12px">Fetching in small batches to avoid rate limits</div>
+      </div>
+    `;
+
+    // Step 2: fetch each transaction individually (the correct API!)
+    const signatures = sigs.map(s => s.signature);
+    const txResults = await fetchTransactions(signatures, (progress) => {
+      progressFill.style.width = (15 + progress * 80) + '%';
     });
-    const txData = await txRes.json();
-    allTxs = (txData.result || []).filter(Boolean);
+
+    allTxs = txResults.filter(Boolean);
+    progressFill.style.width = '100%';
 
     if (allTxs.length === 0) {
       document.getElementById('feedWrap').innerHTML = `
         <div class="state-box">
           <span class="state-icon">○</span>
           <div class="state-title">Could not load transactions</div>
-          <div class="state-sub">RPC returned empty results. Try again in a moment.</div>
+          <div class="state-sub">RPC returned empty results. Try again in a moment, or the wallet may have only very old transactions.</div>
         </div>`;
       return;
     }
@@ -759,15 +840,20 @@ async function loadWallet() {
       <div class="state-box">
         <span class="state-icon">!</span>
         <div class="state-title">RPC Error</div>
-        <div class="state-sub">Could not reach Solana RPC.<br>Check your connection and try again.<br><br><small style="font-family:var(--mono);color:var(--text-dimmer)">${err.message}</small></div>
+        <div class="state-sub">
+          Could not reach Solana RPC.<br>
+          Check your connection and try again.<br><br>
+          <small style="font-family:var(--mono);color:var(--text-dimmer)">${err.message}</small>
+        </div>
       </div>`;
   } finally {
-    document.getElementById('searchBtn').disabled = false;
-    document.getElementById('searchBtn').textContent = 'Trace';
+    btn.disabled = false;
+    btn.textContent = 'Trace';
+    setTimeout(() => { progressWrap.style.display = 'none'; progressFill.style.width = '0%'; }, 600);
   }
 }
 
-// Handle ?wallet= param on load
+// ── URL param support ──────────────────────────────────────────────────
 const urlParams = new URLSearchParams(window.location.search);
 const walletParam = urlParams.get('wallet');
 if (walletParam) {
@@ -775,7 +861,6 @@ if (walletParam) {
   loadWallet();
 }
 
-// Enter key support
 document.getElementById('walletInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') loadWallet();
 });

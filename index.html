@@ -446,6 +446,16 @@
       <span class="quick-addr" onclick="useAddr('5tzFkiKscXHK5ky9tPFdzym2nYoa9pMTGgqCzxHEvSYa')">FTX Wallet</span>
       <span class="quick-addr" onclick="useAddr('GThUX1Atko4tqhN2NaiTazWSeFWMuiUvfFnyJyUghFMJ')">Solana Foundation</span>
     </div>
+    <span class="quick-label" style="margin-top:10px">Custom RPC (optional — get a free key at <a href="https://helius.dev" target="_blank" style="color:var(--purple);text-decoration:none">helius.dev</a>):</span>
+    <input
+      class="search-input"
+      id="customRpc"
+      type="text"
+      placeholder="https://mainnet.helius-rpc.com/?api-key=..."
+      autocomplete="off"
+      spellcheck="false"
+      style="margin-top:6px;font-size:12px"
+    />
   </div>
 
   <div id="statsBar" class="stats-bar" style="display:none">
@@ -475,10 +485,12 @@
 
 <script>
 // ── RPC endpoints — tries each in order if one fails or rate-limits ──
+// TIP: Replace the first entry with a free Helius/QuickNode key for best results:
+//   https://helius.dev  →  https://mainnet.helius-rpc.com/?api-key=YOUR_KEY
 const RPCS = [
-  'https://api.mainnet-beta.solana.com',
-  'https://solana-mainnet.rpc.extrnode.com',
   'https://rpc.ankr.com/solana',
+  'https://api.mainnet-beta.solana.com',
+  'https://solana-rpc.publicnode.com',
 ];
 
 let currentRpcIdx = 0;
@@ -512,8 +524,12 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 // ── RPC call with retry + automatic fallback ──────────────────────────
 
 async function rpcCall(method, params, retries = 3) {
+  // Prepend custom RPC if provided
+  const customRpc = document.getElementById('customRpc')?.value.trim();
+  const rpcList = customRpc ? [customRpc, ...RPCS] : RPCS;
+
   for (let attempt = 0; attempt < retries; attempt++) {
-    const rpc = RPCS[currentRpcIdx % RPCS.length];
+    const rpc = rpcList[currentRpcIdx % rpcList.length];
     try {
       const res = await fetch(rpc, {
         method: 'POST',
@@ -597,7 +613,7 @@ function classifyTx(tx, wallet) {
   const meta = tx.meta;
 
   // Failed transaction
-  if (meta?.err !== null && meta?.err !== undefined && meta?.err !== null) {
+  if (meta?.err !== null && meta?.err !== undefined) {
     return { type: 'failed', label: 'Failed Tx', amount: 0 };
   }
 
@@ -841,8 +857,9 @@ async function loadWallet() {
         <span class="state-icon">!</span>
         <div class="state-title">RPC Error</div>
         <div class="state-sub">
-          Could not reach Solana RPC.<br>
-          Check your connection and try again.<br><br>
+        <div class="state-sub">
+          Public RPCs are heavily rate-limited and may fail.<br>
+          Add a free <a href="https://helius.dev" target="_blank" style="color:var(--purple)">Helius RPC key</a> in the custom RPC field above for reliable results.<br><br>
           <small style="font-family:var(--mono);color:var(--text-dimmer)">${err.message}</small>
         </div>
       </div>`;
